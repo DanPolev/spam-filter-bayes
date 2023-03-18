@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/spam_filter.dir/src/spam_filter.cpp.o CMakeFiles/spam_filter.dir/src/naive_bayes.cpp.o CMakeFiles/spam_filter.dir/src/str_transform.cpp.o  -o spam_filter -lpthread 
