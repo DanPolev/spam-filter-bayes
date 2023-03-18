@@ -1,0 +1,7 @@
+/home/dan/Homework/Algorithms/SpamFilter/build/CMakeFiles/rebuild_cache.dir
+/home/dan/Homework/Algorithms/SpamFilter/build/CMakeFiles/edit_cache.dir
+/home/dan/Homework/Algorithms/SpamFilter/build/CMakeFiles/spam_filter.dir
+/home/dan/Homework/Algorithms/SpamFilter/build/tests/CMakeFiles/rebuild_cache.dir
+/home/dan/Homework/Algorithms/SpamFilter/build/tests/CMakeFiles/edit_cache.dir
+/home/dan/Homework/Algorithms/SpamFilter/build/tests/CMakeFiles/testcheck.dir
+/home/dan/Homework/Algorithms/SpamFilter/build/tests/CMakeFiles/tests.dir
