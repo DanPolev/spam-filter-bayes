@@ -29,16 +29,27 @@ void checkFileExist(const std::string& filename) {
     if (!file.is_open() || !file.good()) {
         const std::string rawcsv_filename {"../data/spam_ham_dataset.csv"};
         file.open(rawcsv_filename, std::ios::in);
+        if (!file.is_open()) {
+            std::string errmsg = "Cannot open" + rawcsv_filename + " file.";
+            throw std::runtime_error(errmsg);
+        }
         
         const char str_delim = ' '; 
         std::string oneline_data = makeStringFromFile(file, str_delim);
         replaceAll(oneline_data, "\"\"", "'");
         splitstring_t csv_lines = splitString(oneline_data, " ", "\"");
+        file.close();
         
         file.open(filename, std::ios::out);
+        if (!file.is_open()) {
+            std::string errmsg = "Cannot open" + filename + " file.";
+            throw std::runtime_error(errmsg);
+        }
             
-        for (const auto& line : csv_lines) {
-            file << line << "\n";
+        for (int i = 0; i < (int)csv_lines.size(); i++) {
+            file << csv_lines[i];
+            if ( i < (int)csv_lines.size() - 1) 
+                file << "\n";
         }
     }
 }
@@ -62,7 +73,7 @@ int main(int argc, char** argv) {
         checkFileExist(truecsv_filename);
         dataset_t dataset;
 
-        io::CSVReader<4, io::trim_chars<' ', '\t', '\n'>, io::double_quote_escape<',', '\"'>> csv_reader(truecsv_filename);
+        io::CSVReader<4, io::trim_chars<' ', '\t'>, io::double_quote_escape<',', '\"'>> csv_reader(truecsv_filename);
         csv_reader.read_header(io::ignore_extra_column, "unknown_id", "label", "text", "label_num");
         int id;
         std::string spam_label; std::string spam_msg; int spam_labelid;
