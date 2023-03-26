@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(tests)
+project(tests LANGUAGES CXX)
 
 find_package(Catch2 3 REQUIRED)
 
