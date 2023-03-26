@@ -13,7 +13,8 @@ endif()
 
 set(SRC src/spam_filter.cpp 
         src/naive_bayes.cpp 
-        src/str_transform.cpp)
+        src/str_transform.cpp
+	src/mainfuncs.cpp)
 
 add_executable(spam_filter ${SRC})
 
