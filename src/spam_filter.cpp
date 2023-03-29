@@ -23,12 +23,10 @@ int main(int argc, char** argv) {
             test_msg = std::string(argv[1]);
         }
 
-        const std::string rawcsv_filename {"../data/spam_ham_dataset.csv"};
-        const std::string truecsv_filename {"../data/spam_ham_lines.csv"};
-        checkProcessedDatasetFileExist(rawcsv_filename, truecsv_filename);
+        const std::string csv_filename {"../data/spam_ham_dataset.csv"};
         dataset_t dataset;
 
-        io::CSVReader<4, io::trim_chars<' ', '\t'>, io::double_quote_escape<',', '\"'>> csv_reader(truecsv_filename);
+        io::CSVReader<4, io::trim_chars<' ', '\t'>, io::double_quote_escape<',', '\"'>> csv_reader(csv_filename);
         csv_reader.read_header(io::ignore_extra_column, "unknown_id", "label", "text", "label_num");
         int id;
         std::string spam_label; std::string spam_msg; int spam_labelid;
